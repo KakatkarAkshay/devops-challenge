@@ -2,8 +2,11 @@ import express from "express";
 import env from "./env";
 const app = express();
 
-app.get("/", (_req, res) => {
-  res.send("Hello World");
+app.get("/", (req, res) => {
+  res.json({
+    timestamp: new Date().toISOString(),
+    ip: req.ip,
+  });
 });
 
 app.listen(env.PORT, () => {
