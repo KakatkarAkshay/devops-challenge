@@ -1,0 +1,10 @@
+services:
+  app:
+    image: ghcr.io/kakatkarakshay/devops-challenge:latest
+    container_name: microservice-app
+    restart: unless-stopped
+    ports:
+      # Optional: Only needed if not running behind a reverse proxy in the same Docker network
+      - "3000:3000"
+    env_file:
+      - .env
